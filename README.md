@@ -1,6 +1,21 @@
-# Hi there 👋
+ Hi there 👋
 
-안녕하세요! 저는 왕휘도입니다 ✨  
+저는 왕휘도이며, 문제를 해결하는 개발자입니다.  
+
+
+---
+
+## 🌈 Tech Stack & Skills
+
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwind-css&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-C13584?style=flat-square&logo=vite&logoColor=white)
+
+---
+[![Productive Box](https://github-readme-gist-stats.vercel.app/api?username=kingluminance&gist=GIST_ID&theme=tokyonight)](https://gist.github.com/GIST_ID)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=kingluminance&layout=compact&theme=tokyonight)
 
 ---
 
