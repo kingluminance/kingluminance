@@ -4,4 +4,6 @@
 
 ---
 
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=kingluminance&show_icons=true&theme=radical)
+
 ![](./profile-3d-contrib/profile-night-rainbow.svg)
