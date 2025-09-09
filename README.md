@@ -1,4 +1,4 @@
- Hi there 👋
+방가아오 👋
 
 저는 왕휘도이며, 문제를 해결하는 개발자입니다.  
 
@@ -14,7 +14,6 @@
 ![Vite](https://img.shields.io/badge/Vite-C13584?style=flat-square&logo=vite&logoColor=white)
 
 ---
-[![Productive Box](https://github-readme-gist-stats.vercel.app/api?username=kingluminance&gist=GIST_ID&theme=tokyonight)](https://gist.github.com/GIST_ID)
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=kingluminance&layout=compact&theme=tokyonight)
 
 ---
