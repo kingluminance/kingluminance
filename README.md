@@ -1,7 +1,7 @@
-## Hi there 👋
+# Hi there 👋
 
-<!--
-**kingluminance/kingluminance** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+안녕하세요! 저는 왕휘도입니다 ✨  
 
+---
 
-![](./profile-3d-contrib/profile-green.svg)
+![](./profile-3d-contrib/profile-green-animate.svg)
