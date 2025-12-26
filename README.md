@@ -1,15 +1,11 @@
 <div align="center">
 
 # 👑 kingluminance
-
-### "문제를 해결하는 개발자"
-
-
 ---
 
 
 </div>
-방가아오 👋
+👋
 
 저는 왕휘도이며
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/kingluminance)
