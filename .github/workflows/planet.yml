@@ -1,0 +1,65 @@
+name: planet
+
+on:
+  issues:
+    types: [opened, labeled]
+  schedule:
+    - cron: "0 1,8,11,21 * * *" # KST 10:00 / 17:00 / 20:00 / 06:00 — sky phase changes
+  push:
+    branches: [main]
+    paths: [assets/planet.py]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: planet
+  cancel-in-progress: false
+
+jobs:
+  planet:
+    # Any other issue never even starts a runner.
+    if: >-
+      github.event_name != 'issues' ||
+      (github.event.action == 'opened' && github.event.issue.title == '🌱 Plant a tree') ||
+      (github.event.action == 'labeled' && github.event.label.name == 'uproot')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: output
+          path: out
+
+      - id: run
+        env:
+          VERB: ${{ github.event_name == 'issues' && (github.event.action == 'opened' && 'plant' || 'uproot') || '' }}
+          LOGIN: ${{ github.event.issue.user.login }}
+        run: |
+          if [ -n "$VERB" ]; then set -- "$VERB" "$LOGIN"; fi
+          echo "result=$(python3 assets/planet.py out/trees.json out/planet.svg "$@")" >> "$GITHUB_OUTPUT"
+
+      - name: Publish to output branch (single commit)
+        if: steps.run.outputs.result != 'exists'
+        working-directory: out
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan next
+          git add -A
+          git commit -qm "planet"
+          git push -qf origin next:output
+
+      - name: Reply and close
+        if: github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          N: ${{ github.event.issue.number }}
+          RESULT: ${{ steps.run.outputs.result }}
+        run: |
+          if [ "$RESULT" = planted ]; then
+            gh issue comment "$N" -R "$GITHUB_REPOSITORY" --body "🌱 Planted! Your tree is growing on the planet → https://github.com/${GITHUB_REPOSITORY_OWNER}"
+          fi
+          gh issue close "$N" -R "$GITHUB_REPOSITORY"

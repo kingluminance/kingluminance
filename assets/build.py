@@ -1,5 +1,4 @@
-"""Regenerate the profile SVGs: python3 assets/build.py"""
-import random
+"""Regenerate the project cards: python3 assets/build.py (header lives in planet.py)"""
 import textwrap
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -60,50 +59,7 @@ text{{font-family:{FONT}}}
 """
 
 
-def header():
-    rnd = random.Random(7)
-    stars = "".join(
-        f'<circle cx="{rnd.randint(0, 1000)}" cy="{rnd.randint(0, 260)}" r="{rnd.choice([0.6, 0.9, 1.2, 1.6])}" fill="#fff">'
-        f'<animate attributeName="opacity" values=".15;.9;.15" dur="{rnd.uniform(2.5, 6):.1f}s" '
-        f'begin="{rnd.uniform(0, 5):.1f}s" repeatCount="indefinite"/></circle>'
-        for _ in range(70)
-    )
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="260" viewBox="0 0 1000 260">
-<style>
-text{{font-family:{FONT}}}
-</style>
-<defs>
-<linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#151d3b"/><stop offset=".6" stop-color="{BG}"/><stop offset="1" stop-color="#070a14"/></linearGradient>
-<radialGradient id="glow"><stop offset="0" stop-color="{GOLD}" stop-opacity=".35"/><stop offset="1" stop-color="{GOLD}" stop-opacity="0"/></radialGradient>
-<radialGradient id="planet" cx=".35" cy=".3"><stop offset="0" stop-color="#ffe7a3"/><stop offset=".55" stop-color="{GOLD}"/><stop offset="1" stop-color="#b9792a"/></radialGradient>
-<clipPath id="r"><rect width="1000" height="260" rx="18"/></clipPath>
-</defs>
-<g clip-path="url(#r)">
-<rect width="1000" height="260" fill="url(#sky)"/>
-{stars}
-<circle cx="820" cy="135" r="150" fill="url(#glow)"/>
-<ellipse cx="820" cy="135" rx="105" ry="30" fill="none" stroke="{GOLD}" stroke-opacity=".25" transform="rotate(-14 820 135)"/>
-<g>
-<animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0" dur="6s" repeatCount="indefinite"/>
-<circle cx="820" cy="135" r="52" fill="url(#planet)"/>
-<path d="M820 63 l-14 24 h9 l-12 18 h34 l-12 -18 h9 z" fill="#2f6b4f"/>
-<rect x="817" y="105" width="6" height="8" fill="#5a3b22"/>
-<path d="M776 120 q44 -14 88 0" fill="none" stroke="#b9792a" stroke-opacity=".5" stroke-width="2"/>
-</g>
-<circle r="7" fill="#c9d1d9">
-<animateMotion dur="9s" repeatCount="indefinite" path="M925 109 A105 30 -14 1 1 715 161 A105 30 -14 1 1 925 109"/>
-</circle>
-<text x="70" y="118" font-size="52" font-weight="800" fill="{INK}">Wang Hwi Do</text>
-<text x="72" y="158" font-size="18" fill="{MUTED}">A developer who builds small worlds —</text>
-<text x="72" y="184" font-size="18" fill="{MUTED}">tools, games, and the maps in between.</text>
-<text x="72" y="222" font-size="13" fill="{GOLD}" letter-spacing="3">KINGLUMINANCE · KOREA</text>
-</g>
-</svg>
-"""
 
-
-(OUT / "header.svg").write_text(header())
 (OUT / "cards").mkdir(exist_ok=True)
 for f, *rest in PROJECTS:
     (OUT / "cards" / f"{f}.svg").write_text(card(*rest))

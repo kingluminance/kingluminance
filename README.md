@@ -1,6 +1,7 @@
-<img src="assets/header.svg" width="100%" alt="Wang Hwi Do — A developer who builds small worlds">
+<img src="https://raw.githubusercontent.com/kingluminance/kingluminance/output/planet.svg" width="100%" alt="Wang Hwi Do — A developer who builds small worlds">
 
 <p align="center">
+  <a href="https://github.com/kingluminance/kingluminance/issues/new?title=%F0%9F%8C%B1%20Plant%20a%20tree&body=Just%20press%20**Create**%20%E2%80%94%20a%20tree%20with%20your%20name%20will%20grow%20on%20my%20planet.%20This%20issue%20closes%20itself."><img src="https://img.shields.io/badge/%F0%9F%8C%B1_Plant_a_tree-0b1020?style=for-the-badge" alt="Plant a tree"></a>
   <a href="https://velog.io/@lumin/posts"><img src="https://img.shields.io/badge/Velog-0b1020?style=for-the-badge&logo=velog&logoColor=f5c451" alt="Velog"></a>
   <a href="mailto:kingluminance@gmail.com"><img src="https://img.shields.io/badge/Email-0b1020?style=for-the-badge&logo=gmail&logoColor=f5c451" alt="Email"></a>
 </p>
