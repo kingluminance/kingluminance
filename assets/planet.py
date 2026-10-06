@@ -74,7 +74,7 @@ def on_ground(slot):
 
 
 def label(text, color):
-    t = text if len(text) <= 14 else text[:13] + "…"
+    t = text if len(text) <= 16 else text[:15] + "…"
     return (f'<text transform="rotate(90)" x="12" y="3" font-size="9" fill="{color}" '
             f'opacity=".85">{escape(t)}</text>')
 
